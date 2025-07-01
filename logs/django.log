@@ -298,3 +298,142 @@ INFO 2025-05-04 18:32:14,648 basehttp "GET /static/js/costCalculator.js HTTP/1.1
 INFO 2025-05-04 18:32:14,679 basehttp "GET /static/imgs/logo.jpg HTTP/1.1" 200 6945
 INFO 2025-05-04 18:32:14,692 basehttp "GET /captcha/image/03039c9e7fb682b2908774dc365924b324642487/ HTTP/1.1" 200 3913
 INFO 2025-05-04 18:32:14,697 basehttp "GET /static/css/bootstrap.min.css HTTP/1.1" 200 140942
+INFO 2025-07-01 22:32:52,880 autoreload Watching for file changes with StatReloader
+INFO 2025-07-01 22:32:56,767 basehttp "GET / HTTP/1.1" 200 22792
+INFO 2025-07-01 22:32:56,822 basehttp "GET /static/css/welcomemsg.css HTTP/1.1" 304 0
+INFO 2025-07-01 22:32:56,824 basehttp "GET /static/css/carousel.css HTTP/1.1" 304 0
+INFO 2025-07-01 22:32:56,828 basehttp "GET /static/fonts/roboto/roboto.css HTTP/1.1" 304 0
+INFO 2025-07-01 22:32:56,828 basehttp "GET /static/css/costCalculator.css HTTP/1.1" 304 0
+INFO 2025-07-01 22:32:56,828 basehttp "GET /static/css/discountModal.css HTTP/1.1" 304 0
+INFO 2025-07-01 22:32:56,831 basehttp "GET /static/css/mobilefriendly.css HTTP/1.1" 304 0
+INFO 2025-07-01 22:32:56,832 basehttp "GET /static/imgs/CarSeat.png HTTP/1.1" 304 0
+INFO 2025-07-01 22:32:56,836 basehttp "GET /static/imgs/CarWash.png HTTP/1.1" 304 0
+INFO 2025-07-01 22:32:56,837 basehttp "GET /static/imgs/logo.jpg HTTP/1.1" 304 0
+INFO 2025-07-01 22:32:56,838 basehttp "GET /static/css/styles.css HTTP/1.1" 200 17291
+INFO 2025-07-01 22:32:56,839 basehttp "GET /static/js/welcomemsg.js HTTP/1.1" 304 0
+INFO 2025-07-01 22:32:56,840 basehttp "GET /static/imgs/Headlight.png HTTP/1.1" 304 0
+INFO 2025-07-01 22:32:56,841 basehttp "GET /static/imgs/Engine.png HTTP/1.1" 304 0
+INFO 2025-07-01 22:32:56,847 basehttp "GET /static/css/bootstrap.min.css HTTP/1.1" 200 140936
+INFO 2025-07-01 22:32:56,877 basehttp "GET /static/imgs/home-tran-ford.png HTTP/1.1" 200 861901
+INFO 2025-07-01 22:32:56,885 basehttp "GET /static/imgs/banner.png HTTP/1.1" 200 1047325
+INFO 2025-07-01 22:32:56,903 basehttp "GET /static/imgs/home-tran-bmw.png HTTP/1.1" 200 2077428
+INFO 2025-07-01 22:32:56,909 basehttp "GET /static/imgs/home-tran-gmc.png HTTP/1.1" 200 2777990
+INFO 2025-07-01 22:32:56,912 basehttp "GET /static/imgs/home-tran-porsche.png HTTP/1.1" 200 2516750
+INFO 2025-07-01 22:32:56,914 basehttp "GET /static/imgs/CenterImage.jpg HTTP/1.1" 200 4193612
+INFO 2025-07-01 22:32:57,006 basehttp "GET /static/fonts/roboto/Roboto-VariableFont_wdth,wght.ttf HTTP/1.1" 200 468308
+INFO 2025-07-01 22:32:58,237 basehttp "GET /schedule_appointment/ HTTP/1.1" 200 13680
+WARNING 2025-07-01 22:33:00,485 log Not Found: /favicon.ico
+WARNING 2025-07-01 22:33:00,485 basehttp "GET /favicon.ico HTTP/1.1" 404 3734
+INFO 2025-07-01 22:34:03,445 autoreload Watching for file changes with StatReloader
+INFO 2025-07-01 22:34:07,951 basehttp "GET / HTTP/1.1" 200 22792
+INFO 2025-07-01 22:34:09,212 basehttp "GET /schedule_appointment/ HTTP/1.1" 200 10979
+INFO 2025-07-01 22:34:57,664 autoreload Watching for file changes with StatReloader
+INFO 2025-07-01 22:35:04,027 basehttp "GET / HTTP/1.1" 200 22792
+INFO 2025-07-01 22:35:05,344 basehttp "GET /schedule_appointment/ HTTP/1.1" 200 11041
+INFO 2025-07-01 22:35:10,288 basehttp "GET /gallery/ HTTP/1.1" 200 15742
+INFO 2025-07-01 22:35:10,332 basehttp "GET /static/js/imgTransition.js HTTP/1.1" 304 0
+INFO 2025-07-01 22:35:10,334 basehttp "GET /static/js/imgSliders.js HTTP/1.1" 304 0
+INFO 2025-07-01 22:35:10,395 basehttp "GET /static/imgs/galleryLeftBefore.jpg HTTP/1.1" 200 1757991
+INFO 2025-07-01 22:35:10,400 basehttp "GET /static/imgs/galleryLeftAfter.jpg HTTP/1.1" 200 2166369
+INFO 2025-07-01 22:35:10,425 basehttp "GET /static/imgs/galleryRightAfter.jpg HTTP/1.1" 200 2284768
+INFO 2025-07-01 22:35:10,443 basehttp "GET /static/imgs/galleryMiddleBefore.jpg HTTP/1.1" 200 2862507
+INFO 2025-07-01 22:35:10,595 basehttp "GET /static/imgs/galleryMiddleAfter.jpg HTTP/1.1" 200 3552183
+INFO 2025-07-01 22:35:10,601 basehttp "GET /static/imgs/galleryRightBefore.jpg HTTP/1.1" 200 3506624
+INFO 2025-07-01 22:35:26,451 basehttp - Broken pipe from ('127.0.0.1', 53503)
+INFO 2025-07-01 22:35:26,452 basehttp - Broken pipe from ('127.0.0.1', 53504)
+INFO 2025-07-01 22:35:26,452 basehttp - Broken pipe from ('127.0.0.1', 53509)
+INFO 2025-07-01 22:36:50,352 autoreload Watching for file changes with StatReloader
+INFO 2025-07-01 22:36:54,774 basehttp "GET / HTTP/1.1" 200 22792
+INFO 2025-07-01 22:36:56,105 basehttp "GET /gallery/ HTTP/1.1" 200 15745
+INFO 2025-07-01 22:36:59,950 basehttp "GET /contact_us/ HTTP/1.1" 200 12197
+INFO 2025-07-01 22:37:00,275 basehttp "GET /captcha/image/babf4a69947daf9e376b60f2eb1eb1ed1a87b37f/ HTTP/1.1" 200 3641
+INFO 2025-07-01 22:37:04,907 basehttp "POST /contact_us/ HTTP/1.1" 200 11856
+INFO 2025-07-01 22:39:31,082 autoreload Watching for file changes with StatReloader
+INFO 2025-07-01 22:39:41,329 basehttp "GET / HTTP/1.1" 200 22792
+INFO 2025-07-01 22:39:42,687 basehttp "GET /contact_us/ HTTP/1.1" 200 12085
+INFO 2025-07-01 22:39:42,733 basehttp "GET /captcha/image/cdc1ebe9052a790182e6bb7ace774bfe536b7daa/ HTTP/1.1" 200 3923
+INFO 2025-07-01 22:40:29,730 autoreload Watching for file changes with StatReloader
+INFO 2025-07-01 22:40:34,096 basehttp "GET / HTTP/1.1" 200 22792
+INFO 2025-07-01 22:40:35,683 basehttp "GET /contact_us/ HTTP/1.1" 200 11982
+INFO 2025-07-01 22:40:35,738 basehttp "GET /captcha/image/d800e57ddf32419987a6f810ec65581e19491a46/ HTTP/1.1" 200 3770
+INFO 2025-07-01 22:41:10,384 autoreload Watching for file changes with StatReloader
+INFO 2025-07-01 22:41:26,554 basehttp "GET / HTTP/1.1" 200 22792
+ERROR 2025-07-01 22:41:27,860 log Internal Server Error: /contact_us/
+Traceback (most recent call last):
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/base.py", line 505, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'else'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/katerinacowan/autoDetailProject-1/apps/home/views.py", line 33, in ContactUsView
+    return render(request, "contact_us.html", {'form': captchaForm, 'captchaenabled': CAPTCHAENABLED})
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/autoDetailProject-1/venv/lib/python3.13/site-packages/django/template/base.py", line 558, in invalid_block_tag
+    raise self.error(
+    ...<8 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 42: 'else', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2025-07-01 22:41:27,863 basehttp "GET /contact_us/ HTTP/1.1" 500 167848
+INFO 2025-07-01 22:42:05,206 autoreload Watching for file changes with StatReloader
+INFO 2025-07-01 22:42:09,808 basehttp "GET / HTTP/1.1" 200 22792
+INFO 2025-07-01 22:42:11,657 basehttp "GET /contact_us/ HTTP/1.1" 200 11475
+INFO 2025-07-01 22:42:41,689 autoreload Watching for file changes with StatReloader
+INFO 2025-07-01 22:42:49,483 basehttp "GET / HTTP/1.1" 200 22792
+INFO 2025-07-01 22:42:51,358 basehttp "GET /contact_us/ HTTP/1.1" 200 10950
+INFO 2025-07-01 22:43:28,488 autoreload Watching for file changes with StatReloader
+INFO 2025-07-01 22:43:32,375 basehttp "GET / HTTP/1.1" 200 22792
+INFO 2025-07-01 22:43:33,491 basehttp "GET /contact_us/ HTTP/1.1" 200 11100
+INFO 2025-07-01 22:43:37,154 basehttp "GET /schedule_appointment/ HTTP/1.1" 200 11041
+INFO 2025-07-01 22:43:37,909 basehttp "GET /gallery/ HTTP/1.1" 200 15745
+INFO 2025-07-01 22:43:41,078 basehttp "GET /about_us/ HTTP/1.1" 200 12233
+INFO 2025-07-01 22:43:41,936 basehttp "GET / HTTP/1.1" 200 22792
