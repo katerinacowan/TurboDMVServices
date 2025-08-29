@@ -1,241 +1,121 @@
 {% extends 'navbar.html' %}
-{% load bootstrap5 %} <!-- Load the bootstrap5 template tag library -->
-{% bootstrap_css %} <!-- Load the Bootstrap CSS img folder -->
-{% bootstrap_javascript %} <!-- Load the Bootstrap JavaScript img folder -->
-{% bootstrap_messages %} <!-- Optional: Display django.contrib.messages as Bootstrap alerts -->
-{% load static %} <!-- Load files stored in static folder in app folder -->
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% load static %}
 
 <head>
-  <!-- Link to your custom CSS files -->
-  <link rel="stylesheet" href="{% static '/styles.css' %}">
-  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+  <!-- CSS -->
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <link rel="stylesheet" href="{% static 'css/welcomemsg.css' %}">
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+  
+  <!-- Luxury font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 
 {% block content %}
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <img src="{% static 'imgs/banner.png' %}" alt="Banner Image" class="hero-img">
+  <div class="hero-copy">
+    <h1 class="hero-heading">
+      FINISH YOUR DMV<br>
+      NEEDS IN<br>
+      <span class="text-gold">TURBO </span>SPEED<span class="text-gold">.</span>
+    </h1>
+    <a href="{% url 'schedule_appointment' %}" class="schedule-btn mt-2">
+      SCHEDULE NOW
+    </a>
+  </div>
+</section>
+
+<!-- Animated Welcome Message Section -->
 <div class="container my-0">
-  <div class="row">
-    <!-- Bootstrap card for banner -->
-    <div class="col-12">
-      <div class="card banner-card position-relative">
-        <img src="{% static 'imgs/banner.png' %}" class="card-img-top" alt="Banner Image">
-        <div class="card-img-overlay d-flex flex-column align-items-start justify-content-center">
-          <h1 class="card-title text-white">
-            WHERE EVERY<br>
-            CAR GETS THE<br>
-            <span style="color: red;">ROYAL</span><br>
-            TREATMENT<span style="color: red;">.</span>
-          </h1>
-          <a href="{% url 'schedule_appointment' %}" class="schedule-btn mt-2">
-            Schedule Now
-          </a>
-        </div>
-      </div>
-    </div>
+  <div class="container my-5 text-center animated-welcome">
+    <h2>
+      Your DMV needs should be done
+      <span id="animated-word"></span>
+      <span class="cursor"></span>
+    </h2>
   </div>
 </div>
 
-  <!-- Our Services Section -->
-  <div class="container my-0 ">
-    <!-- Animated Welcome Message Section -->
-    <div class="container my-5 text-center animated-welcome">
-      <h2>
-        Your car should be 
-        <span id="animated-word"></span>
-        <span class="cursor"></span>
-      </h2>
-    </div>
-  </div>
-
 <!-- Who We Are Section -->
 <div class="container py-4 px-3">
-  <div class="row rounded-3 text-white align-items-center py-5 px-3 mx-0" style="background-color: #fa0000;">
+  <div class="row who-we-are-container rounded-3 align-items-center py-5 px-3 mx-0">
     <!-- Text Content -->
-    <div class="col-md-6 mb-4 mb-md-0 text-center">
+    <div class="col-md-6 mb-4 mb-md-0 text-black text-center">
       <h1 class="fw-bold" style="font-size: clamp(28px, 4vw, 50px);">Who We Are</h1>
       <p style="font-size: clamp(16px, 2vw, 20px);">
-        We are a local auto detail shop servicing customers in the Sacramento region. We do a full auto detail from interior, exterior, and even the engine. We detail all kinds of cars, no matter how dirty, clean, old, or new.
+        At Turbo DMV Services, we proudly serve the Sacramento community by taking the stress out of DMV visits. From vehicle registrations and renewals to title transfers, plates, stickers, and more, we handle the paperwork quickly and accurately so you don’t have to wait in long lines. As a trusted first-line service provider, we’re authorized to complete most DMV services on-site, saving you time while ensuring every detail is processed with care.
       </p>
       <div class="d-flex flex-column flex-md-row justify-content-center gap-3 mt-4">
-        <a href="{% url 'schedule_appointment' %}" class="btn btn-light btn-lg rounded-pill">Schedule Appointment</a>
-        <a href="{% url 'about_us' %}" class="btn btn-light btn-lg rounded-pill">Contact Us Today</a>
+        <a href="{% url 'schedule_appointment' %}" class="btn btn-light text-black btn-lg rounded-pill">Schedule Appointment</a>
+        <a href="{% url 'about_us' %}" class="btn btn-light btn-lg text-black rounded-pill">Contact Us Today</a>
       </div>
     </div>
     <!-- Logo Content -->
     <div class="col-md-6 d-flex justify-content-center">
-      <div class="bg-white rounded overflow-hidden" style="width: 250px; aspect-ratio: 1 / 1;">
-        <img src="{% static 'imgs/logo.jpg' %}" alt="Logo" class="img-fluid w-100 h-100 object-fit-contain">
+      <div class="bg-black rounded overflow-hidden" style="width: 250px; aspect-ratio: 1 / 1;">
+        <img src="{% static 'imgs/logo.png' %}" alt="Logo" class="img-fluid w-100 h-100 object-fit-contain">
       </div>
     </div>
   </div>
 </div>
 
-<!-- Our Services Section -->
+<!-- Our Services Section (DMV-focused) -->
 <div class="container py-5 px-3">
   <div class="text-center mb-4">
-    <h6 class="text-danger">Our Services</h6>
+    <h6 class="text-gold">Our Services</h6>
     <h2 class="sub-title">What We Do</h2>
+    <p class="lead mt-3">
+      We handle DMV paperwork for <strong>all vehicles</strong> — cars, trucks, motorcycles, trailers, RVs, commercial and fleet — so you can skip the lines and drive with confidence.
+    </p>
   </div>
 
   <div class="row justify-content-center align-items-stretch">
     <!-- Left Column -->
     <div class="col-md-4 mb-4">
-      <div class="card service-box text-center p-4 mb-4" style="background-color: #f7f7f7;">
-        <img src="{% static 'imgs/CarSeat.png' %}" alt="Interior" class="mb-3" style="width: 50px;">
-        <h5 class="fw-bold">Interior</h5>
-        <p>No matter the interior material, we refresh and remove stains and debris.</p>
+      <div class="card service-box text-center p-4 mb-4">
+        <h5 class="fw-bold ">Registration & Renewal</h5>
+        <p>Fast processing for new registrations, renewals, duplicates, and out-of-state vehicles.</p>
       </div>
-      <div class="card service-box text-center p-4" style="background-color: #f7f7f7;">
-        <img src="{% static 'imgs/CarWash.png' %}" alt="Exterior" class="mb-3" style="width: 50px;">
-        <h5 class="fw-bold">Exterior</h5>
-        <p>Removing dirt, spots, and swirls to make your car shine brilliantly.</p>
+      <div class="card service-box text-center p-4">
+        <h5 class="fw-bold">Title Transfers</h5>
+        <p>Buying, selling, gifting, or inheriting? We complete title work accurately and on time.</p>
       </div>
     </div>
 
-    <!-- Center Image -->
+    <!-- Center Image (optional visual) -->
     <div class="col-md-4 mb-4 d-flex align-items-center justify-content-center">
-      <img src="{% static 'imgs/CenterImage.jpg' %}" class="img-fluid rounded" alt="Service Image">
+      <img src="{% static 'imgs/DMV.svg' %}" class="img-fluid rounded" alt="DMV Services">
     </div>
 
     <!-- Right Column -->
     <div class="col-md-4 mb-4">
-      <div class="card service-box text-center p-4 mb-4" style="background-color: #f7f7f7;">
-        <img src="{% static 'imgs/Engine.png' %}" alt="Engine" class="mb-3" style="width: 50px;">
-        <h5 class="fw-bold">Engine</h5>
-        <p>Detailing and rejuvenating your car’s engine to shine brightly.</p>
+      <div class="card service-box text-center p-4 mb-4">
+        <h5 class="fw-bold">Plates & Stickers</h5>
+        <p>Replacement plates, tags, and registration cards—handled quickly so you stay compliant.</p>
       </div>
-      <div class="card service-box text-center p-4" style="background-color: #f7f7f7;">
-        <img src="{% static 'imgs/Headlight.png' %}" alt="Headlights" class="mb-3" style="width: 50px;">
-        <h5 class="fw-bold">Headlights</h5>
-        <p>Restoring yellow headlights to crystal-clear condition.</p>
+      <div class="card service-box text-center p-4">
+        <h5 class="fw-bold">VIN Verification & Specialty</h5>
+        <p>VIN checks, address changes, personalized plates, and commercial/fleet support.</p>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Transformations Section -->
-<div class="container-fluid mx-auto px-3 my-5 text-center">
-  <div class="container px-3">
-    <!-- Section Header -->
-    <div class="text-center mb-4">
-      <h2 class="transformation-title">Some of our Transformations</h2>
-    </div>
-
-    <!-- Transformation Images Grid -->
-    <div class="row g-3 justify-content-center">
-      <!-- First Transformation -->
-      <div class="col-sm-6 col-md-3 d-flex justify-content-center">
-        <div class="card border-0 h-100">
-          <img src="{% static 'imgs/home-tran-ford.png' %}" class="card-img-top rounded transformation-img" alt="Ford Raptor transformation">
-        </div>
-      </div>
-
-      <!-- Second Transformation -->
-      <div class="col-sm-6 col-md-3 d-flex justify-content-center">
-        <div class="card border-0 h-100">
-          <img src="{% static 'imgs/home-tran-bmw.png' %}" class="card-img-top rounded transformation-img" alt="BMW transformation">
-        </div>
-      </div>
-
-      <!-- Third Transformation -->
-      <div class="col-sm-6 col-md-3 d-flex justify-content-center">
-        <div class="card border-0 h-100">
-          <img src="{% static 'imgs/home-tran-gmc.png' %}" class="card-img-top rounded transformation-img" alt="GMC transformation">
-        </div>
-      </div>
-
-      <!-- Fourth Transformation -->
-      <div class="col-sm-6 col-md-3 d-flex justify-content-center">
-        <div class="card border-0 h-100">
-          <img src="{% static 'imgs/home-tran-porsche.png' %}" class="card-img-top rounded transformation-img" alt="Porsche transformation">
-        </div>
-      </div>
-    </div>
-
-    <!-- Gallery Button -->
-    <div class="text-center mt-4">
-      <a href="{% url 'gallery' %}" class="btn btn-dark btn-lg rounded-pill">Gallery</a>
-    </div>
+  <div class="text-center mt-4">
+    <a href="{% url 'schedule_appointment' %}" class="btn btn-dark rounded-pill px-4 py-2">
+      Book an Appointment
+    </a>
   </div>
 </div>
 
-  <!-- Third Row of Content -->
-<div class="container mx-auto px-3 my-5 text-center">
-  <div class="row justify-content-center w-100">
-    <div class="col-12" style="height:50px;"></div> <!-- Space between cards and footer -->
+{% include 'footer.html' %}
 
-    <!-- Top-Rated Care -->
-    <div class="row justify-content-center w-100">
-      <div class="col-lg-10">
-        <div class="card-group shadow-lg d-flex justify-content-center align-items-center">
-          <div class="card d-flex align-items-center justify-content-center text-center w-100">
-            <!-- Google Maps Embed (Fully Centered) -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3117.903565421771!2d-121.40285622024186!3d38.605089773250334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809adb00171de56f%3A0x58b0261c2569f2d!2sAK%20Auto%20Detail!5e0!3m2!1sen!2sus!4v1729470952793!5m2!1sen!2sus"
-              class="w-100 rounded" style="max-width: 600px; height: 300px; border: 0; display: block; margin: auto;" 
-              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Maps">
-            </iframe>
-          </div>
-
-          <div class="card d-flex align-items-center justify-content-center text-center w-100">
-            <!-- Top-Rated Care Message -->
-            <div class="card-body text-center">
-              <h5 class="card-title fs-1 text-primary fw-light">Top-Rated Care</h5>
-              <p class="text-nowrap fs-1 text-warning fw-bolder">
-                5.0 &#11088; &#11088; &#11088; &#11088; &#11088;
-              </p>
-              <p>
-                <img src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA" 
-                     class="rounded-circle" width="60" height="60" alt="Google Review">
-              </p>
-              <a href="https://maps.app.goo.gl/hpXdthRRwjk7ZDDj9" class="stretched-link"></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Dynamic Testimonials -->
-    <div class="container my-5 text-center d-flex justify-content-center align-items-center">
-      <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center align-items-center mx-auto">
-        {% for review in reviews %}
-        <div class="col-lg-4 d-flex justify-content-center">
-          <div class="shadow card h-100 w-100 text-center">
-            <div class="card-body shadow-lg">
-              <h5 class="card-title">{{ review.title }}</h5>
-              <p class="text-nowrap">{% for i in review.get_star_range %}
-              &#11088;
-              {% endfor %}</p>  
-              <p class="card-text">{{ review.text }}</p>
-              <a href="{{ review.link }}" class="stretched-link"></a>
-            </div>
-          </div>
-        </div>
-       {% endfor %}
-     </div>
-    </div>
-  </div>
-</div>
-
-    <!-- Instagram Social Media -->
-    <div class="container text-center">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <blockquote class="instagram-media shadow-lg w-100 mx-auto"
-            data-instgrm-permalink="https://www.instagram.com/akautodetail2/?utm_source=ig_embed&amp;utm_campaign=loading" 
-            data-instgrm-version="14"
-            style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); max-width: 600px; margin: auto;">
-          </blockquote>
-        </div>
-      </div>
-    </div>
-    
-    <script async src="//www.instagram.com/embed.js" charset="utf-8"></script>
-  </div>
-</div>
-
-  <!-- Include welcome message JavaScript -->
-  <script src="{% static 'js/welcomemsg.js' %}"></script>
-
-  {% include 'footer.html' %}
+<!-- JS -->
+<script src="{% static 'js/welcomemsg.js' %}"></script>
 {% endblock %}

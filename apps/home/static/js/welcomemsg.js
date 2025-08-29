@@ -1,6 +1,6 @@
 // JavaScript for the animated welcome message
   // Array of words to cycle through
-  const words = ['clean', 'stylish' , 'modern'];
+  const words = ['fast', 'simple' , 'stress-free'];
   let wordIndex = 0;    // Current word index
   let charIndex = 0;    // Current character index
 

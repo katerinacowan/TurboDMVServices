@@ -1,54 +1,58 @@
-/* Default light mode (root) */
-:root {
-    --bg-color: white;
-    --text-color: black;
-    --card-bg-color: #f8f9fa; /* Default card background */
-    --card-text-color: black;
-    --navbar-bg-color: white;
-    --navbar-text-color: black;
-    --link-color: black;
-    --hover-border-color: black;
-    --button-bg-color: red;
-    --button-text-color: white;
-    --footer-bg-color: #f0f0f0; /* Light gray for footer */
-}
+/* ================================
+   THEME VARIABLES
+   Default = DARK MODE
+   ================================ */
 
-/* Dark mode overrides */
-.dark-mode {
+:root {
     --bg-color: #121212;
     --text-color: #e0e0e0;
-    --card-bg-color: #1e1e1e; /* Dark background for cards */
+    --card-bg-color: #1e1e1e;
     --card-text-color: #c7c7c7;
     --navbar-bg-color: #1e1e1e;
     --navbar-text-color: #ffffff;
     --link-color: #bbbbbb;
     --hover-border-color: #ffffff;
-    --button-bg-color: #d32f2f;
-    --button-text-color: #ffffff;
+
+    /* Brand gold used everywhere instead of red */
+    --brand-gold: #D4AF37;
+
+    /* Buttons default to brand gold */
+    --button-bg-color: #C7A431;   /* slightly deeper gold fits dark */
+    --button-text-color: #111111;
+
     --footer-bg-color: #2c2c2c;
 }
 
-/* Fix hover color in dark mode for nav links */
-.dark-mode .nav-list li a:hover {
-    color: white !important; /* Change to your preferred color */
-    background-color: transparent !important; /* Remove unwanted background */
-    text-decoration: none !important;
-}
-/* Dark mode for table on Appointment Cost Calculator */
-.dark-mode table,
-.dark-mode th,
-.dark-mode td {
-    color: var(--text-color);
-}
+/* Light mode overrides (toggle this by adding .light-mode on <body>) */
+.light-mode {
+    --bg-color: white;
+    --text-color: black;
+    --card-bg-color: #f8f9fa;
+    --card-text-color: black;
+    --navbar-bg-color: white;
+    --navbar-text-color: black;
+    --link-color: black;
+    --hover-border-color: black;
 
-.container-fluid {
-    width: 100%; /* Instead of 100vw */
-    max-width: 100%; /* Prevents overflowing */
-    overflow-x: hidden; /* Ensures no horizontal scroll */
+    --button-bg-color: var(--brand-gold);
+    --button-text-color: white;
+
+    --footer-bg-color: #f0f0f0;
 }
 
+/* Utility */
+.text-gold { color: var(--brand-gold) !important; }
 
-/* Apply colors to body and other elements */
+/* ================================
+   GLOBAL / RESETS
+   ================================ */
+
+.container-fluid { width: 100%; max-width: 100%; overflow-x: hidden; }
+html, body { overflow-x: hidden; width: 100%; }
+* { box-sizing: border-box; }
+img, video { max-width: 100%; height: auto; display: block; }
+
+/* Apply theme colors */
 body {
     background-color: var(--bg-color) !important;
     color: var(--text-color) !important;
@@ -67,56 +71,73 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dark Mode Inversion for Service Images */
-.dark-mode .service-box img {
-    filter: invert(1) brightness(1.5); /* Invert and adjust brightness for better visibility */
-    transition: filter 0.3s ease;
-}
+/* Service pictograms are light-on-dark by default; normalize in light-mode */
+.service-box img { filter: invert(1) brightness(1.5); transition: filter 0.3s ease; }
+.light-mode .service-box img { filter: none; }
 
-/* Text-specific classes */
-.text-dark, .text-primary, .text-muted {
-    color: var(--text-color) !important;
-}
+/* Text-specific helpers */
+.text-dark, .text-primary, .text-muted { color: var(--text-color) !important; }
+.text-danger { color: var(--brand-gold) !important; } /* “Our Services” label */
 
-/* Navbar styling */
+/* Tables adopt theme vars */
+.table, .table th, .table td, .card-text, .card-title { color: var(--text-color) !important; }
+.table, .card, .table th, .table td { background-color: var(--card-bg-color) !important; border-color: var(--hover-border-color) !important; }
+.table-bordered th, .table-bordered td { border-color: var(--hover-border-color) !important; }
+
+/* ================================
+   NAVBAR
+   ================================ */
+
 .custom-navbar {
     position: fixed !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999; /* Ensure it's on top */
-    width: 100%; /* Make sure the navbar spans the full width */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: for depth */
-    background-color: rgba(255, 255, 255, 0.9); /* Optional: for transparency */
+    top: 0; left: 0; right: 0;
+    z-index: 9999;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.25);
+    background-color: var(--navbar-bg-color);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  body {
-    padding-top: 160px; /* Adjust this to match your navbar height */
-  }
+}
+body { padding-top: 160px; }
 
-  .custom-navbar .nav-link {
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color and transform */
-  }
-  
-  .custom-navbar .nav-link:hover {
-    color: #ffffff; /* Change color on hover */
-    transform: scale(1.05); /* Slightly enlarge the text on hover */
-  }
+/* Link base */
+.custom-navbar .nav-link {
+    color: var(--navbar-text-color) !important;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-weight: 600;
+}
 
-/* Navigation list and links */
+/* Gold underline on hover/active */
+.custom-navbar .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background-color: var(--brand-gold);
+    transition: width 0.25s ease;
+}
+.custom-navbar .nav-link:hover::after,
+.custom-navbar .nav-link.active::after { width: 100%; }
+
+/* Keep text readable on hover for each theme */
+.light-mode .custom-navbar .nav-link { color: #000 !important; }
+.light-mode .custom-navbar .nav-link:hover { color: #000 !important; transform: scale(1.05); }
+
+.dark-mode .custom-navbar .nav-link { color: #fff !important; }
+.dark-mode .custom-navbar .nav-link:hover { color: #fff !important; transform: scale(1.05); }
+
+/* Navigation list and links (secondary nav pattern some pages use) */
 .nav-list {
-    margin: 20px auto !important; /* Reduce margin */
+    margin: 20px auto !important;
     padding: 0 !important;
     display: flex !important;
-    flex-wrap: wrap !important; /* Allows wrapping */
-    gap: 30px !important; /* Reduce space between items */
+    flex-wrap: wrap !important;
+    gap: 30px !important;
     justify-content: center !important;
 }
-
-.nav-list li {
-    display: inline !important;
-}
-
+.nav-list li { display: inline !important; }
 .nav-list li a {
     text-decoration: none !important;
     font-weight: bold !important;
@@ -128,378 +149,181 @@ body {
     letter-spacing: 1px !important;
     transition: color 0.3s ease, border-color 0.3s ease;
 }
+.nav-list li a:hover { border-bottom: 2px solid var(--brand-gold) !important; }
 
-.logo img {
-    max-width: 100%; /* Ensures it resizes within its container */
-    height: auto; /* Maintains aspect ratio */
-    display: block; /* Removes extra space around the image */
-    margin: 0 auto; /* Centers the logo */
-}
+/* Logo */
+.logo img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
 
-/* Adjust logo size for mobile screens */
+/* Responsive nav/logo */
 @media (max-width: 768px) {
-    .logo img {
-        height: 100px; /* Smaller logo for mobile */
-    }
-
-    /* Adjust nav-list for smaller screens */
-    .nav-list {
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 15px !important; /* Smaller gap for mobile */
-    }
-
-    /* Adjust font size for smaller screens */
-    .nav-list li a {
-        font-size: 18px !important; /* Slightly smaller font size for mobile */
-    }
+    .logo img { height: 100px; }
+    .nav-list { flex-direction: column !important; align-items: center !important; gap: 15px !important; }
+    .nav-list li a { font-size: 18px !important; }
 }
 
-/* Hover effect for links */
-.nav-list li a:hover {
-    border-bottom: 2px solid var(--hover-border-color) !important;
+/* ================================
+   HERO (full-width image + left copy)
+   ================================ */
+
+.hero {
+  position: relative !important;
+  width: 100%;
+  height: 85vh; /* adjust 80–95vh as desired */
+  overflow: hidden;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .nav-list {
-        flex-direction: column !important;
-        align-items: center !important;
-    }
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
-/* Banner card styling */
+
+/* Softer overlay so the photo still shines */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.30) 0%,
+    rgba(0,0,0,0.15) 50%,
+    rgba(0,0,0,0.08) 100%
+  );
+  pointer-events: none;
+}
+
+/* Keep copy left & centered vertically */
+.hero-copy {
+  position: absolute !important;
+  top: 50% !important;
+  left: 8% !important;
+  transform: translateY(-50%) !important;
+  z-index: 2;
+  width: min(800px, 90%);
+  text-align: left;
+  padding: 0 0.5rem;
+}
+
+/* Force white for readability inside hero */
+.hero-copy, .hero-copy h1 { color: #fff !important; }
+
+/* Headline style + readability helpers */
+.hero-heading {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 6vw, 5rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+  -webkit-text-stroke: 0.5px rgba(0,0,0,0.2); /* subtle outline */
+}
+
+/* Any accent spans inside hero become gold */
+.hero-heading span { color: var(--brand-gold) !important; }
+
+/* Hero CTA button in gold */
+.hero .schedule-btn {
+  background-color: var(--button-bg-color) !important;
+  border: none;
+  font-size: 1.2rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+  color: var(--button-text-color) !important;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.1s ease;
+}
+.hero .schedule-btn:hover {
+  background-color: #b8952d !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+/* ================================
+   BANNER CARD (non-hero cards)
+   ================================ */
+
 .banner-card {
-    border-radius: 50px !important;  
-    overflow: hidden;                
-    position: relative;              
-    box-shadow: none !important;     
-    max-width: 1200px; 
-    margin: 0 auto; 
-}
-
-/* Fix the banner image stretching */
-.banner-card .card-img-top {
-    border-radius: 50px !important;  
-    width: 100%;                     
-    height: auto;                    
-    object-fit: cover;               
-    object-position: center;         
-    max-width: 1200px; /* Prevent stretching beyond content width */
-    display: block;
-}
-
-/* Banner text position */
-.banner-card .card-img-overlay {
-    position: absolute;              
-    top: 50%;                        
-    left: 10%; /* Adjust for better balance on larger screens */
-    transform: translateY(-50%);     
-    max-width: 90%; /* Ensure text doesn't stretch too wide */
-    padding: 0 10px; 
-    z-index: 2; /* Keeps text on top of the image */
-}
-
-/* Banner font */
-.banner-card .card-title {
-    font-size: clamp(24px, 5vw, 50px); /* Scalable text size */
-    font-weight: bold;
-    text-align: left; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    margin: 0;
-    font-family: 'Roboto', sans-serif; 
-    width: 100%;
-}
-
-/* Adjust for smaller screens */
-@media (max-width: 768px) {
-    .banner-card {
-        max-width: 90%; /* Allow smaller width */
-    }
-
-    .banner-card .card-title {
-        font-size: 28px; /* Reduce font size for better readability */
-    }
-
-    .banner-card .card-img-overlay {
-        left: 10%; /* Center text a bit more on smaller screens */
-        max-width: 80%;
-    }
-
-    .schedule-btn {
-        font-size: 16px; /* Adjust button font size for small screens */
-        padding: 12px 15px; /* Adjust button padding */
-    }
-}
-
-@media (max-width: 576px) {
-    .banner-card {
-        max-width: 95%; /* Keep it responsive */
-    }
-
-    .banner-card .card-img-overlay {
-        left: 10%; /* Center text further */
-        max-width: 85%; /* Ensure text fits well */
-    }
-
-    .banner-card .card-title {
-        font-size: 20px; /* Smaller font size for very small screens */
-    }
-
-    .schedule-btn {
-        font-size: 14px; /* Smaller button text */
-        padding: 10px 12px; /* Adjust padding for smaller screens */
-    }
-}
-/* Exempt the iframe container from dark mode */
-.no-dark-mode {
-    background-color: white !important; /* Keep background light */
-    color: black !important; /* Keep text readable */
-    padding: 20px;
-    border-radius: 10px;
-  }
-
-  /* Specifically target iframe inside the container for dark mode */
-  @media (prefers-color-scheme: dark) {
-    .no-dark-mode iframe {
-      background-color: white !important; /* Ensure iframe remains light */
-    }
-  }
-
-/* Non-banner cards */
-.card:not(.banner-card) {
-    border-radius: 0 !important;     
-    box-shadow: none !important;     
-}
- 
-/* Button styling */
-
-/* Schedule Now Button */
-.schedule-btn {
-    display: inline-block;            
-    background-color: var(--button-bg-color);       
-    color: var(--button-text-color);                     
-    text-align: center;               
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;                  
-    font-weight: bold;                
-    padding: 15px 20px;            
-    text-decoration: none;           
-    border-radius: 8px;               
-    transition: background-color 0.3s ease, color 0.3s ease; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    text-transform: uppercase; 
-}
-
-/* Slightly darken the background on hover */
-.schedule-btn:hover {
-    background-color: rgb(158, 0, 0) !important; /* Slightly darker red */
-    color: rgb(194, 194, 194) !important;
-}
-
-/* Gallery container */
-.gallery-container {
-    width: 100%;
+    border-radius: 50px !important;
+    overflow: hidden;
+    position: relative;
+    box-shadow: none !important;
     max-width: 1200px;
     margin: 0 auto;
-    padding-bottom: 20px;
 }
-
-.gallery-title {
-    text-align: left;
-    margin-top: 5rem; 
-    letter-spacing: 2.5px;
-    font-size: 3.5rem; 
-    font-weight: 900;
-    text-transform: uppercase; 
-}
-.text-danger {
-    font-family: 'Poppins', sans-serif; /* Change to your preferred font */
-    font-size: 23px; /* Adjust size if needed */
-    font-weight: bold; /* Make it bold */
-}
-
-.sub-title {
-    font-family: 'Poppins', sans-serif; /* Change to your preferred font */
-    font-size: 50px; /* Adjust size if needed */
-    font-weight: bold; /* Make it bold */
-}
-
-.transformation-title {
-    font-family: 'Poppins', sans-serif; /* Change to your preferred font */
-    font-size: 50px; /* Adjust size if needed */
-    font-weight: bold; /* Make it bold */
-}
-
-.transformation-img {
-    width: 100%; /* Makes images fill their container */
-    height: 500px; /* Adjust height as needed */
-    object-fit: cover; /* Ensures images maintain their aspect ratio */
-    border-radius: 8px; /* Optional: keeps the rounded edges */
-}
-
-.follow-us {
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    /* Makes the div take full screen height */
-  }
-
-::root {
-  --image-comparison-slider-width: min(80vw, 100px);
-  --image-comparison-slider-handle-width: 50px;
-  --image-comparison-slider-height: 100px; /* Set a consistent height */
-}
-
-.slider-container {
-    display: flex;
-    flex-wrap: nowrap; /* prevent wrapping on desktop */
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
+.banner-card .card-img-top {
+    border-radius: 50px !important;
     width: 100%;
-    padding: 1rem 0;
-    box-sizing: border-box;
-  }
-  
-  @media (max-width: 1024px) {
-    .slider-container {
-      flex-wrap: wrap; /* allow wrapping only on smaller screens */
-    }
-  }
-
-.image-comparison-slider {
-  position: relative;
-  width: var(--image-comparison-slider-width);
-  height: var(--image-comparison-slider-height);
-  overflow: hidden;
-  border-radius: 0.5rem;
-  box-shadow: -7px 5px 16px 1px rgba(56, 86, 122, 0.6);
-  cursor: col-resize;
-}
-
-.image-comparison-slider img {
-  display: block;
-  width: 100%;
-  height: var(--image-comparison-slider-height);
-  object-fit: cover;
-  pointer-events: none;
-  user-select: none;
-}
-
-.image-comparison-slider .img-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.image-comparison-slider .img-wrapper img {
-position: absolute;
-    top: 0;
-    right: 0;
-    width: auto;
-    height: 100%;
+    height: auto;
     object-fit: cover;
-    object-position: right center;
+    object-position: center;
+    max-width: 1200px;
+    display: block;
 }
-
-
-.image-comparison-slider .label {
-  position: absolute;
-  top: 1rem;
-  z-index: 3;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.33);
-  border-radius: 0.25rem;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.85rem;
-  text-align: center;
-  letter-spacing: 1px;
-  user-select: none;
-  opacity: 0;
-  transition: 0.25s cubic-bezier(.68, .26, .58, 1.22);
+.banner-card .card-img-overlay {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    max-width: 90%;
+    padding: 0 10px;
+    z-index: 2;
 }
-
-.image-comparison-slider:hover .label {
-  opacity: 1;
-}
-
-.image-comparison-slider .label.label-before {
-  left: 1rem;
-}
-
-.image-comparison-slider .label.label-after {
-  right: 1rem;
-  background-color: #f95540;
-}
-
-.image-comparison-slider .handle {
-  position: absolute;
-  top: 0;
-  left: 50%;/*calc(50% - var(--image-comparison-slider-handle-width) / 2);*/
-  width: var(--image-comparison-slider-handle-width);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  user-select: none;
-  z-index: 2;
-}
-
-.image-comparison-slider .handle-line {
-  width: 2px;
-  flex-grow: 1;
-  background-color: #fff;
-}
-
-#image-comparison-slider .handle-circle {
-  width: var(--image-comparison-slider-handle-width);
-  height: var(--image-comparison-slider-handle-width);
-  color: #fff;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  /* background-color: rgba(0,0,0,0.5); */
-}
-
-.gallery-title {
-    font-size: clamp(2.4rem, 5vw, 5rem); /* Automatically scales between mobile and desktop */
+.banner-card .card-title {
+    font-size: clamp(24px, 5vw, 50px);
     font-weight: bold;
-    margin-bottom: 2rem;
-  }
-
-#videoCarousel {
-    max-width: 800px;
-    margin: auto;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .carousel video {
-    border-radius: 10px;
-  }
-  
-
-@media (max-width: 200px) {
-  :root {
-    --image-comparison-slider-width: 90vw;
-    --image-comparison-slider-height: 200px;
-  }
-.schedule-btn:hover {
-    background-color: #b71c1c; /* Slightly darker red for hover */
-    color: var(--button-text-color); 
+    text-align: left;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+}
+@media (max-width: 768px) {
+    .banner-card { max-width: 90%; }
+    .banner-card .card-title { font-size: 28px; }
+    .banner-card .card-img-overlay { left: 10%; max-width: 80%; }
+    .schedule-btn { font-size: 16px; padding: 12px 15px; }
+}
+@media (max-width: 576px) {
+    .banner-card { max-width: 95%; }
+    .banner-card .card-img-overlay { left: 10%; max-width: 85%; }
+    .banner-card .card-title { font-size: 20px; }
+    .schedule-btn { font-size: 14px; padding: 10px 12px; }
 }
 
-/* Styling for the Schedule Appointment link button */
+/* ================================
+   BUTTONS (generic outside hero)
+   ================================ */
+
+.schedule-btn {
+    display: inline-block;
+    background-color: var(--button-bg-color) !important; /* GOLD */
+    color: var(--button-text-color) !important;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+}
+.schedule-btn:hover {
+    background-color: #b8952d !important;
+    color: #ffffff !important;
+}
+
+/* APT button (kept grey per your design) */
 .apt-btn {
-    display: inline-block; 
-    background-color: #555555; /* New color, blue */
-    color: white;             /* Text color */
+    display: inline-block;
+    background-color: #555555;
+    color: white;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
@@ -509,147 +333,215 @@ position: absolute;
     border-radius: 50px;
     margin-top: 15px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     text-transform: uppercase;
-} 
-
-/* For tablets Schedule Appointment link button */
-@media (max-width: 768px) {
-    .apt-btn {
-        font-size: 18px; 
-        padding: 14px 18px; 
-        max-width: 250px; 
-        margin-top: -20px;
-   
-    }
 }
+.apt-btn:hover { background-color: #1b1b1b; color: white; }
+@media (max-width: 768px) { .apt-btn { font-size: 18px; padding: 14px 18px; max-width: 250px; margin-top: -20px; } }
+@media (max-width: 576px) { .apt-btn { font-size: 16px; padding: 12px 15px; max-width: 220px; } }
+@media (max-width: 375px) { .apt-btn { font-size: 14px; padding: 10px 12px; max-width: 200px; } }
 
-/* For mobile screens Schedule Appointment link button */
-@media (max-width: 576px) {
-    .apt-btn {
-        font-size: 16px; 
-        padding: 12px 15px; 
-        max-width: 220px; 
-    }
-}
+/* ================================
+   SECTIONS / TITLES
+   ================================ */
 
-/* For very small screens Schedule Appointment link button */
-@media (max-width: 375px) {
-    .apt-btn {
-        font-size: 14px; 
-        padding: 10px 12px; 
-        max-width: 200px; 
-    }
-}
+.gallery-container { width: 100%; max-width: 1200px; margin: 0 auto; padding-bottom: 20px; }
+.gallery-title { text-align: left; margin-top: 5rem; letter-spacing: 2.5px; font-size: 3.5rem; font-weight: 900; text-transform: uppercase; }
+.sub-title { font-family: 'Poppins', sans-serif; font-size: 50px; font-weight: bold; color: var(--brand-gold) !important; }
+.transformation-title { font-family: 'Poppins', sans-serif; font-size: 50px; font-weight: bold; color: var(--brand-gold) !important; }
+.transformation-img { width: 100%; height: 500px; object-fit: cover; border-radius: 8px; }
 
-.apt-btn:hover {
-    background-color: #1b1b1b; /* Darker blue for hover effect */
-    color: white; /* Ensures text color remains white */
-}
-
-/* Container styling for Who We Are section */
+/* Who we are — background is now gold (text will use theme vars) */
 .who-we-are-container {
-    background-color: red; /* Keeps the red background */
-    padding: 7% 5%; /* Adjust padding for better scaling */
-    margin: 0 auto; /* Centering */
-    width: 100%; /* Make sure it takes full width */
-    min-height: 300px; /* Set a minimum height */
+    background-color: var(--brand-gold) !important;
+    padding: 7% 5%;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center; /* Ensures text inside is centered */
+    text-align: center;
 }
+@media (max-width: 768px) { .who-we-are-container { padding: 10% 3%;} }
+.static-text { color: #333333; } /* used where you need fixed dark text */
 
-/* Make sure it adjusts properly on smaller screens */
-@media (max-width: 768px) {
-    .who-we-are-container {
-        padding: 10% 3%; /* More padding on smaller screens */
-    }
-}
+/* ================================
+   FOOTER
+   ================================ */
 
-/* Static paragraph text color */
-.static-text {
-    color: #333333; /* Fixed color, dark gray */
-}
-
-
-/* Footer styling with consistent background color across all sections */
 footer, footer .container, footer section {
-    background-color: var(--footer-bg-color) !important; /* Apply footer background to all sections */
-    color: var(--text-color) !important; /* Ensure text is also consistent */
+    background-color: var(--footer-bg-color) !important;
+    color: var(--text-color) !important;
     padding: 20px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+footer p, footer a { color: var(--link-color) !important; text-decoration: none; transition: color 0.3s ease; }
+footer a:hover { color: var(--brand-gold) !important; }
+footer i { color: var(--link-color) !important; transition: color 0.3s ease; }
+footer a:hover i { color: var(--brand-gold) !important; }
 
-/* Footer text and link colors */
-footer p, footer a {
-    color: var(--link-color) !important; /* Link color */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
+/* ================================
+   IFRAME EXEMPT (maps/instagram)
+   ================================ */
 
-footer a:hover {
-    color: var(--hover-border-color) !important; /* Adjust on hover */
-}
-
-/* Footer icon styling */
-footer i {
-    color: var(--link-color) !important; /* Set color based on theme */
-    transition: color 0.3s ease;
-}
-
-/* Add a hover effect for social media icons */
-footer a:hover i {
-    color: var(--hover-border-color) !important; /* Hover color for icons */
-}
-
-/* Apply text color to all heading and paragraph elements */
-h1, h2, h3, h4, h5, h6, p, .lead, .text-center {
-    color: var(--text-color) !important;
-}
-
-/* Also apply to Bootstrap-specific classes */
-.table, .table th, .table td, .card-text, .card-title {
-    color: var(--text-color) !important;
-}
-
-/* Button text color */
-.btn, .btn-light, .btn-dark {
-    color: var(--button-text-color) !important;
-}
-
-/* Table and card backgrounds */
-.table, .card, .table th, .table td {
-    background-color: var(--card-bg-color) !important;
-    border-color: var(--hover-border-color) !important; /* For border color in dark mode */
-}
-
-/* Borders for tables in dark mode */
-.table-bordered th, .table-bordered td {
-    border-color: var(--hover-border-color) !important;
-}
-
+.no-dark-mode { background-color: white !important; color: black !important; padding: 20px; border-radius: 10px; }
 .instagram-media{
     background:#FFF;
     border:0;
     border-radius:3px;
     box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);
-    width: 100%; max-width:
-    100%;
-}
+    width: 100%;
+    max-width: 100%;
 }
 
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  img, video {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
+/* ================================
+   IMAGE COMPARISON SLIDER / CAROUSEL
+   ================================ */
+
+:root {
+  --image-comparison-slider-width: min(80vw, 100px);
+  --image-comparison-slider-handle-width: 50px;
+  --image-comparison-slider-height: 100px;
+}
+.slider-container {
+  display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 3rem;
+  width: 100%; padding: 1rem 0; box-sizing: border-box;
+}
+@media (max-width: 1024px) { .slider-container { flex-wrap: wrap; } }
+
+.image-comparison-slider {
+  position: relative; width: var(--image-comparison-slider-width);
+  height: var(--image-comparison-slider-height);
+  overflow: hidden; border-radius: 0.5rem;
+  box-shadow: -7px 5px 16px 1px rgba(56, 86, 122, 0.6);
+  cursor: col-resize;
+}
+.image-comparison-slider img {
+  display: block; width: 100%; height: var(--image-comparison-slider-height);
+  object-fit: cover; pointer-events: none; user-select: none;
+}
+.image-comparison-slider .img-wrapper { position: absolute; top: 0; right: 0; width: 50%; height: 100%; overflow: hidden; z-index: 1; }
+.image-comparison-slider .img-wrapper img {
+  position: absolute; top: 0; right: 0; width: auto; height: 100%;
+  object-fit: cover; object-position: right center;
+}
+.image-comparison-slider .label {
+  position: absolute; top: 1rem; z-index: 3; color: #fff;
+  background-color: rgba(0,0,0,0.33); border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem; font-size: 0.85rem; text-align: center; letter-spacing: 1px;
+  user-select: none; opacity: 0; transition: 0.25s cubic-bezier(.68, .26, .58, 1.22);
+}
+.image-comparison-slider:hover .label { opacity: 1; }
+.image-comparison-slider .label.label-before { left: 1rem; }
+.image-comparison-slider .label.label-after { right: 1rem; background-color: #f95540; }
+.image-comparison-slider .handle {
+  position: absolute; top: 0; left: 50%;
+  width: var(--image-comparison-slider-handle-width); height: 100%;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  user-select: none; z-index: 2;
+}
+.image-comparison-slider .handle-line { width: 2px; flex-grow: 1; background-color: #fff; }
+#image-comparison-slider .handle-circle {
+  width: var(--image-comparison-slider-handle-width); height: var(--image-comparison-slider-handle-width);
+  color: #fff; border: 2px solid #fff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: space-evenly;
+}
+
+/* Carousel */
+.gallery-title { font-size: clamp(2.4rem, 5vw, 5rem); font-weight: bold; margin-bottom: 2rem; }
+#videoCarousel { max-width: 800px; margin: auto; border-radius: 10px; overflow: hidden; }
+.carousel video { border-radius: 10px; }
+
+/* Tiny screens */
+@media (max-width: 200px) {
+  :root { --image-comparison-slider-width: 90vw; --image-comparison-slider-height: 200px; }
+  .schedule-btn:hover { background-color: #b8952d; color: var(--button-text-color); }
+}
+
+/* ================================
+   SERVICE TABS & CARDS
+   ================================ */
+
+/* Pills (neutral, not Bootstrap blue) */
+.nav-pills .nav-link {
+  background: transparent !important;
+  color: var(--text-color) !important;
+  border-radius: 6px;
+  padding: 10px 18px;
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+
+/* Active tab — invert colors for contrast */
+.nav-pills .nav-link.active {
+  background-color: var(--text-color) !important;
+  color: var(--bg-color) !important;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+}
+
+/* Hover per theme */
+.light-mode .nav-pills .nav-link:hover { background: rgba(0,0,0,0.08) !important; }
+.dark-mode  .nav-pills .nav-link:hover { background: rgba(255,255,255,0.12) !important; }
+
+/* Service Cards */
+.card { border: none !important; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
+body.light-mode .card { background: #ffffff !important; color: #111 !important; }
+body.dark-mode  .card { background: #1e1e1e !important; color: #f1f1f1 !important; }
+
+/* Page header (remove dark strip in light; keep gradient in dark) */
+.services-header { padding: 3rem 0; text-align: center; }
+body.light-mode .services-header { background: #fff !important; color: #000 !important; border: none !important; }
+body.dark-mode  .services-header { background: linear-gradient(180deg, #0f0f0f 0%, #161616 100%) !important; color: #fff !important; }
+
+/* ================================
+   CONTACT-US OUTLINE BUTTON VISIBILITY
+   ================================ */
+
+/* Light mode */
+body.light-mode .btn-outline-light {
+  color: #000 !important;
+  border: 2px solid #000 !important;
+}
+body.light-mode .btn-outline-light:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* Dark mode */
+body.dark-mode .btn-outline-light {
+  color: #fff !important;
+  border: 2px solid #fff !important;
+}
+body.dark-mode .btn-outline-light:hover {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+/* ================================
+   FOOTER VISIBILITY FIX
+   ================================ */
+
+/* Make section headers (Quick Links, Contact) readable in both themes */
+footer h5,
+footer strong,
+footer .fw-bold {
+  color: var(--text-color) !important;
+  font-weight: 600 !important;
+}
+
+/* Make sure footer links remain visible in light mode */
+body.light-mode footer a {
+  color: #000 !important;
+}
+body.light-mode footer a:hover {
+  color: var(--brand-gold) !important;
+}
+
+/* Dark mode footer links */
+body.dark-mode footer a {
+  color: #e0e0e0 !important;
+}
+body.dark-mode footer a:hover {
+  color: var(--brand-gold) !important;
+}

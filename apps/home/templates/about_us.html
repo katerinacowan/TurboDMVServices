@@ -1,5 +1,5 @@
 {% extends 'navbar.html' %}
-{% load bootstrap5 %}
+{% load django_bootstrap5 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 {% bootstrap_messages %}
@@ -7,31 +7,29 @@
 {% block content %}
 
 <div class="container mt-5">
-  <h1 class="text-center">About Us</h1>
+  <h1 class="text-center text-gold">About Us</h1>
   <div class="row mt-4 align-items-center">
-    <!-- Image on the left -->
-    <div class="col-lg-5">
-      <img src="{% static 'imgs/logo.jpg' %}" class="img-fluid rounded shadow w-75" alt="AK Auto Detail Logo" />
+    <!-- Logo/Image on the left -->
+    <div class="col-lg-5 text-center">
+      <img src="{% static 'imgs/logo.png' %}" class="img-fluid rounded shadow w-75" alt="Turbo DMV Services Logo" />
     </div>
-    <!-- Text on the right -->
+
+    <!-- About Us Text on the right -->
     <div class="col-lg-7">
       <p class="lead">
-        <strong>Welcome to AK Auto Detail, your trusted auto detailing specialists.</strong>
+        <strong>Welcome to Turbo DMV Services — Sacramento’s trusted DMV service partner.</strong>
       </p>
       <p class="lead">
-        We are a trusted small business in the Sacramento region, providing premium detailing services for public and private dealership vehicles.
+        We are dedicated to making your DMV experience simple, fast, and stress-free. From vehicle registration and title transfers to renewals and plates, our team works at <span class="text-gold">Turbo Speed</span> so you can skip the long lines and get back on the road with confidence.
       </p>
       <p class="lead">
-        At AK Auto Detail, we are passionate about cars and dedicated to making every vehicle look its absolute best. With years of experience in auto detailing, we provide high-quality services, including exterior polishing, interior deep cleaning, and more.
+        Sacramento is a diverse city, and we are proud to serve our community by offering DMV services in <strong>English, Arabic, and Spanish</strong>. No matter your background or language preference, we are here to help guide you through the process with care and clarity.
       </p>
       <p class="lead">
-        We use professional-grade products and industry-leading techniques to restore your vehicle's shine and protect it from the elements. Our team takes pride in attention to detail, ensuring that every car receives the care it deserves.
+        With professionalism, accuracy, and a customer-first approach, our goal is to save you time and provide peace of mind. We handle the paperwork so you don’t have to.
       </p>
       <p class="lead">
-        Customer satisfaction is our priority. Whether you need a quick wash or full detailing, we guarantee exceptional results and a showroom finish.
-      </p>
-      <p class="lead">
-        <strong>Thank you for choosing AK Auto Detail. We look forward to keeping your car looking brand new!</strong>
+        <strong>Thank you for choosing Turbo DMV Services — where all your DMV needs are finished at Turbo Speed.</strong>
       </p>
     </div>
   </div>

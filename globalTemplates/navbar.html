@@ -1,119 +1,76 @@
-{% load static %} <!-- Load static files -->
-{% load bootstrap5 %} <!-- Load Bootstrap5 -->
-
-{% bootstrap_css %} <!-- Load Bootstrap CSS -->
-{% bootstrap_messages %} <!-- Bootstrap alerts -->
+{% load django_bootstrap5 static %}
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AK Auto Detail</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <!-- Google Font -->
-  <link rel="stylesheet" href="{% static 'fonts/roboto/roboto.css' %}">
+  <!-- Bootstrap (via django-bootstrap5) -->
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  {% bootstrap_messages %}
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
-  <link rel="stylesheet" href="{% static 'css/discountModal.css' %}">
-  <link rel="stylesheet" href="{% static 'css/costCalculator.css' %}">
+  <!-- Luxury heading font for hero -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Your styles -->
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <link rel="stylesheet" href="{% static 'css/welcomemsg.css' %}">
-  <link rel="stylesheet" href="{% static 'css/mobilefriendly.css' %}">
 
-  <style>
-    .dark-mode .navbar-toggler-icon {
-      filter: invert(1);
-    }
-  </style>
+  <title>Turbo DMV Service</title>
 </head>
-
 <body>
-  <!-- Navigation Bar -->
-  <header>
-    <nav class="custom-navbar navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
-            <!-- Logo -->
-            <div class="logo">
-                <a href="{% url 'home' %}">
-                    <img src="{% static 'imgs/logo.jpg' %}" alt="AK Auto Detail Logo" height="80">
-                </a>
-            </div>
 
-            <!-- Navbar Toggler Button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+  <!-- NAVBAR (fixed) -->
+  <nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'home' %}">
+        <span class="logo">
+          <img src="{% static 'imgs/logo.png' %}" alt="Turbo DMV Service" style="height: 150px; width: 150px;">
+        </span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="nav-list navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About Us</a></li>
+          <!-- Temporary anchor version; change to {% url 'services' %} once you create a view -->
+          <li class="nav-item"><a class="nav-link" href="{% url 'services' %}">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'schedule_appointment' %}">Schedule Appointment</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a></li>
+
+          <!-- Dark Mode toggle button -->
+          <li class="nav-item mt-2 mt-lg-0">
+            <button id="light-mode-toggle" class="btn btn-secondary btn-sm ms-lg-3" aria-label="Toggle Light Mode">
+              Light Mode
             </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-            <!-- Custom Nav Links -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="nav-links">
-                    <ul class="nav-list navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'gallery' %}">Gallery</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'schedule_appointment' %}">Schedule Appointment</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a></li>
+  <!-- PAGE CONTENT -->
+  {% block content %}{% endblock %}
 
-                        <!-- Dark Mode Toggle Button inside Navbar -->
-                        <li class="nav-item mt-2 mt-lg-0">
-                            <button id="dark-mode-toggle" class="btn btn-secondary btn-sm ms-lg-3" aria-label="Toggle Dark Mode">
-                                Dark Mode
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
-</header>
-
-<!-- JavaScript for Dark Mode Toggle -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const darkModeToggleButton = document.getElementById("dark-mode-toggle");
-        const darkModeClass = "dark-mode";
-        const body = document.body;
-        const navbarCollapse = document.getElementById("navbarNav");
-
-        // Initialize Bootstrap Collapse
-        let bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
-
-        // Check for stored dark mode preference
-        if (localStorage.getItem("darkMode") === "enabled") {
-            body.classList.add(darkModeClass);
-            darkModeToggleButton.textContent = "Light Mode";
-        } else {
-            darkModeToggleButton.textContent = "Dark Mode";
-        }
-
-        // Toggle dark mode on button click
-        darkModeToggleButton.addEventListener("click", function () {
-            body.classList.toggle(darkModeClass);
-            const isDarkModeEnabled = body.classList.contains(darkModeClass);
-            localStorage.setItem("darkMode", isDarkModeEnabled ? "enabled" : "disabled");
-            darkModeToggleButton.textContent = isDarkModeEnabled ? "Light Mode" : "Dark Mode";
-        });
-
-        // Close navbar when clicking a link (on mobile)
-        document.querySelectorAll(".nav-link").forEach(link => {
-            link.addEventListener("click", function () {
-                if (window.innerWidth < 992) {
-                    bsCollapse.hide();
-                }
-            });
-        });
-    });
-</script>
-  <!-- Bootstrap JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Page Content -->
-  {% block content %}
-  {% endblock %}
-  
+  <script>
+    // Simple dark mode toggler
+    (function () {
+      const btn = document.getElementById('light-mode-toggle');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        document.body.classList.toggle('light-mode');
+      });
+    })();
+  </script>
 </body>
 </html>

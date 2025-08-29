@@ -1,125 +1,135 @@
-{% load static %} <!-- Load the static tag to use static files-->
-{% load bootstrap5 %} <!-- Load the bootstrap5 template tag library -->
-{% bootstrap_css %} <!-- Load the Bootstrap CSS img folder -->
-{% bootstrap_messages %} <!--Optional: Display django.contrib.messages as Bootstrap alerts -->
+{% load static %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_messages %}
 
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AK Auto Detail</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Turbo DMV Service</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <!-- Ionicons for footer icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+  <style>
+    /* Footer uses theme variables so it works in light & dark mode */
+    .footer-compact{
+      background: var(--footer-bg-color, #111);
+      color: var(--text-color, #e6e6e6);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .footer-compact .container{ max-width: 960px; }
+    .footer-compact .section-pad{ padding-top:22px; padding-bottom:22px; }
+
+    .footer-compact h6{
+      font-size: 13.5px;
+      letter-spacing: .02em;
+      margin: 0 0 10px 0;
+      font-weight: 700;
+      color: var(--text-color, #fff);
+    }
+
+    .footer-compact p,
+    .footer-compact li{ margin-bottom:7px; }
+    .footer-compact .desc{ max-width:400px; }
+    .footer-compact .logo{ height:150px; }
+
+    .footer-compact .icon{
+      font-size:16px;
+      width:20px;
+      display:inline-block;
+      margin-right:6px;
+      position:relative; top:1px;
+      color: var(--text-color, #e6e6e6) !important;
+      opacity:1 !important;
+    }
+
+    /* Links adapt to theme; hover goes brand gold */
+    .footer-compact a{
+      color: var(--link-color, #dcdcdc);
+      text-decoration: none;
+    }
+    .footer-compact a:hover{
+      color: var(--brand-gold, #D4AF37);
+    }
+
+    /* Divider line respects theme */
+    .footer-compact .hr{ margin:12px 0 0; border-top:1px solid rgba(255,255,255,.22); }
+    body.light-mode .footer-compact .hr{ border-top:1px solid rgba(0,0,0,.18); }
+
+    .footer-compact .copyright{
+      font-size:12.5px;
+      color: var(--link-color, #bdbdbd);
+      padding:12px 0 14px;
+    }
+  </style>
 </head>
 
 <body>
-    <footer class="text-center text-lg-start text-white">
-        <!-- Footer Text -->
-        <section class="d-flex justify-content-center p-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <p class="text-center">
-                            We provide high-quality services, including interior cleaning, exterior polishing, and engine detailing to keep your vehicle looking brand new.
-                            Whether you need a deep clean or routine maintenance, our skilled team is dedicated to delivering exceptional results with premium products. Let us make your car shine!
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="container">
-            <hr style="border-top: 1px solid gray; width: 100%; margin: 0 auto;">
+  <footer class="footer-compact">
+    <div class="container section-pad">
+      <div class="row align-items-start">
+        <!-- Logo + blurb -->
+        <div class="col-12 col-md-4 mb-4 mb-md-0">
+          <img src="{% static 'imgs/logo.png' %}" alt="Turbo DMV Logo" class="logo mb-2">
+          <p class="desc">
+            Contact us for fast, reliable DMV services in Sacramento. We serve in English, Arabic, and Spanish.
+          </p>
         </div>
-        <!-- Footer Text -->
 
-        <!-- Logo  -->
-        <section>
-            <div class="container text-center text-md-start mt-5">
-                <div class="row mt-3">
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        <div class="d-flex justify-content-start">
-                            <img src="{% static 'imgs/logo.jpg' %}" alt="AK Auto Detail Logo" height="100">
-                        </div>
-
-                        <p class="text-left mt-3">
-                            Contact us today to explore our auto detailing services and take advantage of great deals from the leading shop in the area. Let us be your trusted partner in keeping your vehicle in top condition, inside and out.
-                        </p>
-                    </div>
-                    <!-- Logo -->
-
-                    <div class="col-md-1 d-none d-md-block">
-                        <div style="border-left: 1px solid gray; height: 90%;"></div>
-                    </div>
-
-                    <!-- Quick Links -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <h6 class="text-left fw-bold">Quick Links</h6>
-
-                        <p class="text-left">
-                            <a href="{% url 'home' %}">Home</a>
-                        </p>
-                        <p class="text-left">
-                            <a href="{% url 'about_us' %}">About Us</a>
-                        </p>
-                        <p class="text-left">
-                            <a href="{% url 'gallery' %}">Gallery</a>
-                        </p>
-                        <p class="text-left">
-                            <a href="{% url 'schedule_appointment' %}">Schedule Appointment</a>
-                        </p>
-                        <p class="text-left">
-                            <a href="{% url 'contact_us' %}">Contact Us</a>
-                        </p>
-                    </div>
-                    <!-- Quick Links -->
-                    
-                    <!-- Services -->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <h6 class="text-left fw-bold">Services</h6>
-
-                        <p class="text-left">Interior Detail</p>
-                        <p class="text-left">Exterior Detail</p>
-                        <p class="text-left">Engine Detail</p>
-                        <p class="text-left">Headlight Restoration</p>
-                    </div>
-                    <!-- Services -->
-
-                    <div class="col-md-1 d-none d-md-block">
-                        <div style="border-left: 1px solid gray; height: 90%;"></div>
-                    </div>
-
-                    <!-- Contact -->
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                        <h6 class="text-left fw-bold">Contact</h6>
-
-                        <div class="text-left">
-                            <i class="ion-ios-telephone" style="font-size: 24px; margin-right: 8px;"></i>
-                            <a href="tel:+19166170252"><span>(916) 617-0252</span></a>
-                        </div>
-                        <div class="text-left mt-3">
-                            <i class="ion-email" style="font-size: 24px; margin-right: 8px;"></i>
-                            <a href="mailto:akautodetail2@gmail.com">akautodetail2@gmail.com</a>
-                        </div>
-                        <div class="text-left mt-3">
-                            <a href="https://www.instagram.com/akautodetail2?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
-                                <i class="ion-social-instagram" style="font-size: 24px;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Contact -->
-        </section>
-
-        <!-- Copyright -->
-        <div class="container">
-            <hr style="border-top: 1px solid gray; width: 100%; margin: 0 auto;">
+        <!-- Quick Links -->
+        <div class="col-6 col-md-3 mb-4 mb-md-0">
+          <h6>Quick Links</h6>
+          <ul class="list-unstyled mb-0">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about_us' %}">About Us</a></li>
+            <li><a href="{% url 'services' %}">Services</a></li>
+            <li><a href="{% url 'schedule_appointment' %}">Schedule Appointment</a></li>
+            <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+          </ul>
         </div>
-        <div class="text-center p-3">
-            © 2024 Copyright: Zeros and Ones
+
+        <!-- Contact -->
+        <div class="col-6 col-md-5">
+          <h6>Contact</h6>
+
+          <p class="mb-2">
+            <i class="ion-ios-telephone icon"></i>
+            <a href="tel:+19165004345">(916) 500-4345</a>
+          </p>
+
+          <p class="mb-2">
+            <i class="ion-email icon"></i>
+            <a href="mailto:contact@turbodmv.com">contact@turbodmv.com</a>
+          </p>
+
+          <p class="mb-2">
+            <i class="ion-ios-location icon"></i>
+            <a href="https://maps.google.com/?q=2740+Arden+Way+%23224,+Sacramento,+CA+95825"
+               target="_blank" rel="noopener">
+              2740 Arden Way #224<br>
+              Sacramento, CA 95825<br>
+              United States
+            </a>
+          </p>
+
+          <p class="mb-0">
+            <i class="ion-ios-time icon"></i>
+            Hours: Mon – Fri, 9:00 AM – 5:00 PM
+          </p>
         </div>
-    </footer>
+      </div>
+
+      <div class="hr"></div>
+      <div class="text-center copyright">
+        © 2025 Turbo Tags And Registration Services LLC
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
