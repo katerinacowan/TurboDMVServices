@@ -1,9 +1,5 @@
 """
-<<<<<<< HEAD
 Django settings for dmvservice project.
-=======
-Django settings for autoDetailProject project.
->>>>>>> 73b0a89400ebc0a3ad2fda240a1674419a4eb18e
 """
 
 import os
@@ -54,11 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-<<<<<<< HEAD
 ROOT_URLCONF = 'dmvservice.urls'  # ✅ Fixed from autoDetailProject
-=======
-ROOT_URLCONF = 'autoDetailProject.urls'
->>>>>>> 73b0a89400ebc0a3ad2fda240a1674419a4eb18e
 
 TEMPLATES = [
     {
@@ -76,17 +68,10 @@ TEMPLATES = [
     },
 ]
 
-<<<<<<< HEAD
 WSGI_APPLICATION = 'dmvservice.wsgi.application'  # ✅ Fixed from TurboDMVServices
 
 # -----------------
 # DATABASE (SQLite + Heroku Postgres)
-=======
-WSGI_APPLICATION = 'TurboDMVServices.wsgi.application'
-
-# -----------------
-# DATABASE (SQLite)
->>>>>>> 73b0a89400ebc0a3ad2fda240a1674419a4eb18e
 # -----------------
 DATABASES = {
     'default': {
@@ -95,14 +80,11 @@ DATABASES = {
     }
 }
 
-<<<<<<< HEAD
 # Override with Heroku database URL if available
 import dj_database_url
 if 'DATABASE_URL' in os.environ:
     DATABASES['default'] = dj_database_url.parse(os.environ['DATABASE_URL'])
 
-=======
->>>>>>> 73b0a89400ebc0a3ad2fda240a1674419a4eb18e
 # -----------------
 # PASSWORDS
 # -----------------
@@ -132,7 +114,6 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # ✅ correct target for collectstatic
-<<<<<<< HEAD
 
 # ✅ FIXED: Updated to use Django 4.2+ STORAGES setting instead of STATICFILES_STORAGE
 STORAGES = {
@@ -151,11 +132,6 @@ MEDIA_URL = '/media/'  # ✅ Added missing MEDIA settings
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # -----------------
-=======
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# -----------------
->>>>>>> 73b0a89400ebc0a3ad2fda240a1674419a4eb18e
 # DEFAULT PK
 # -----------------
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
