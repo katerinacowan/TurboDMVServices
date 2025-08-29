@@ -4603,5 +4603,35 @@ INFO 2025-08-29 04:06:17,557 basehttp "GET /static/imgs/dmv-dealer.png HTTP/1.1"
 INFO 2025-08-29 04:06:17,558 basehttp "GET /static/imgs/dmv-forms.png HTTP/1.1" 304 0
 INFO 2025-08-29 04:06:17,558 basehttp "GET /static/imgs/dmv-vin.png HTTP/1.1" 304 0
 INFO 2025-08-29 04:06:17,558 basehttp "GET /static/imgs/dmv-fleet.png HTTP/1.1" 304 0
+<<<<<<< HEAD
 INFO 2025-08-29 06:50:29,396 autoreload Watching for file changes with StatReloader
 INFO 2025-08-29 07:16:49,800 autoreload Watching for file changes with StatReloader
+=======
+INFO 2025-08-29 04:34:11,816 basehttp "GET /services/ HTTP/1.1" 200 16495
+INFO 2025-08-29 04:34:11,850 basehttp "GET /static/css/welcomemsg.css HTTP/1.1" 304 0
+WARNING 2025-08-29 04:34:11,850 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1969
+INFO 2025-08-29 04:34:11,850 basehttp "GET /static/css/styles.css HTTP/1.1" 304 0
+WARNING 2025-08-29 04:34:11,851 basehttp "GET /static/styles.css HTTP/1.1" 404 1957
+INFO 2025-08-29 04:34:11,851 basehttp "GET /static/imgs/dmv-registration.png HTTP/1.1" 304 0
+INFO 2025-08-29 04:34:11,851 basehttp "GET /static/imgs/logo.png HTTP/1.1" 304 0
+INFO 2025-08-29 04:34:11,853 basehttp "GET /static/imgs/dmv-forms.png HTTP/1.1" 304 0
+INFO 2025-08-29 04:34:11,855 basehttp "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-08-29 04:34:11,855 basehttp "GET /static/imgs/dmv-dealer.png HTTP/1.1" 304 0
+INFO 2025-08-29 04:34:11,856 basehttp "GET /static/imgs/dmv-fleet.png HTTP/1.1" 304 0
+INFO 2025-08-29 04:34:11,856 basehttp "GET /static/imgs/dmv-vin.png HTTP/1.1" 304 0
+INFO 2025-08-29 04:34:17,649 basehttp "GET / HTTP/1.1" 200 11372
+WARNING 2025-08-29 04:34:17,689 basehttp "GET /static/styles.css HTTP/1.1" 404 1957
+WARNING 2025-08-29 04:34:17,689 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1969
+INFO 2025-08-29 04:34:17,690 basehttp "GET /static/imgs/DMV.svg HTTP/1.1" 304 0
+INFO 2025-08-29 04:34:17,690 basehttp "GET /static/js/welcomemsg.js HTTP/1.1" 304 0
+INFO 2025-08-29 04:34:17,690 basehttp "GET /static/imgs/banner.png HTTP/1.1" 304 0
+INFO 2025-08-29 04:35:40,510 basehttp "GET /about_us/ HTTP/1.1" 200 8738
+WARNING 2025-08-29 04:35:40,543 basehttp "GET /static/styles.css HTTP/1.1" 404 1957
+WARNING 2025-08-29 04:35:40,547 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1969
+INFO 2025-08-29 04:35:47,699 basehttp "GET /schedule_appointment/ HTTP/1.1" 200 7892
+WARNING 2025-08-29 04:35:47,736 basehttp "GET /static/styles.css HTTP/1.1" 404 1957
+WARNING 2025-08-29 04:35:47,744 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1969
+INFO 2025-08-29 06:10:52,320 autoreload Watching for file changes with StatReloader
+INFO 2025-08-29 06:12:24,867 autoreload /Users/katerinacowan/TurboDMVServices/dmvservice/settings.py changed, reloading.
+INFO 2025-08-29 06:12:25,130 autoreload Watching for file changes with StatReloader
+>>>>>>> 73b0a89400ebc0a3ad2fda240a1674419a4eb18e
