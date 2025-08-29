@@ -4636,3 +4636,101 @@ INFO 2025-08-29 06:12:24,867 autoreload /Users/katerinacowan/TurboDMVServices/dm
 INFO 2025-08-29 06:12:25,130 autoreload Watching for file changes with StatReloader
 >>>>>>> 73b0a89400ebc0a3ad2fda240a1674419a4eb18e
 INFO 2025-08-29 07:21:44,388 autoreload Watching for file changes with StatReloader
+INFO 2025-08-29 07:27:17,308 autoreload Watching for file changes with StatReloader
+ERROR 2025-08-29 07:27:23,186 log Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/defaulttags.py", line 1026, in find_library
+    return parser.libraries[name]
+           ~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'django_bootstrap_v5'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/apps/home/views.py", line 10, in homeView
+    return render(request, 'home.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 132, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 129, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 107, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/defaulttags.py", line 1088, in load
+    lib = find_library(parser, name)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/katerinacowan/TurboDMVServices/.venv/lib/python3.12/site-packages/django/template/defaulttags.py", line 1028, in find_library
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'django_bootstrap_v5' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_urls
+cache
+django_bootstrap5
+i18n
+l10n
+log
+static
+tz
+ERROR 2025-08-29 07:27:23,190 basehttp "GET / HTTP/1.1" 500 177932
+INFO 2025-08-29 07:28:47,233 autoreload Watching for file changes with StatReloader
+INFO 2025-08-29 07:28:50,639 basehttp "GET / HTTP/1.1" 200 11372
+INFO 2025-08-29 07:28:50,689 basehttp "GET /static/imgs/banner.png HTTP/1.1" 304 0
+INFO 2025-08-29 07:28:50,689 basehttp "GET /static/css/styles.css HTTP/1.1" 304 0
+INFO 2025-08-29 07:28:50,690 basehttp "GET /static/imgs/logo.png HTTP/1.1" 304 0
+INFO 2025-08-29 07:28:50,692 basehttp "GET /static/css/welcomemsg.css HTTP/1.1" 304 0
+INFO 2025-08-29 07:28:50,700 basehttp "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-08-29 07:28:50,700 basehttp "GET /static/imgs/DMV.svg HTTP/1.1" 304 0
+INFO 2025-08-29 07:28:50,700 basehttp "GET /static/js/welcomemsg.js HTTP/1.1" 304 0
+WARNING 2025-08-29 07:28:50,704 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1902
+WARNING 2025-08-29 07:28:50,705 basehttp "GET /static/styles.css HTTP/1.1" 404 1890
