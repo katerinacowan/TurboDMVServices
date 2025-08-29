@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'home',
-    'django_bootstrap5',
+    'django_bootstrap_v5',
     'captcha',
 ]
 
