@@ -1,4 +1,4 @@
-/* Container styling for the animated welcome message */
+/* === Animated Welcome Box with Black Gradient Background === */
 .animated-welcome {
   background: linear-gradient(135deg, #2c2c2c, #121212) !important; /* dark gradient */
   padding: 20px 30px !important;
@@ -9,17 +9,17 @@
   text-align: center !important;
 }
 
-/* Heading styling */
+/* Heading text */
 .animated-welcome h2 {
   font-size: 2.5rem !important;
   font-weight: bold !important;
-  color: #f5f5f5 !important; /* light text for dark bg */
+  color: #f5f5f5 !important; /* light text for contrast on black box */
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8) !important;
   margin: 0 !important;
-  font-family: 'Cinzel', serif !important; /* match hero/logo font */
+  font-family: 'Cinzel', serif !important;
 }
 
-/* Styling for the animated word with a gold shimmer effect */
+/* Animated word just gold pulse, not gradient fill */
 #animated-word {
   color: #d4af37 !important; /* gold */
   animation: goldPulse 3s infinite !important;
@@ -32,7 +32,7 @@
   100% { color: #d4af37; text-shadow: 0 0 5px rgba(212, 175, 55, 0.7); }
 }
 
-/* Blinking cursor styling */
+/* Cursor */
 .cursor {
   display: inline-block !important;
   width: 2px !important;

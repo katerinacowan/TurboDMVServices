@@ -162,3 +162,150 @@ img {
     padding: 15px 20px;
     font-size: 1rem;
 }
+
+/* Default (light background) */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(33,37,41,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Dark mode (bright white lines) */
+.dark-mode .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* === Bootstrap hamburger color fix (light & dark) === */
+/* Default (light backgrounds) */
+.navbar {
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(33,37,41,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22 M4 15h22 M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Dark backgrounds — covers your old 'light-mode' toggle, new 'dark-mode', and .navbar-dark */
+body.dark-mode .navbar,
+body:not(.light-mode) .navbar,
+.navbar.navbar-dark {
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22 M4 15h22 M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Fallback for older Bootstrap: actually apply the variable */
+.navbar-toggler-icon {
+  background-image: var(--bs-navbar-toggler-icon-bg) !important;
+}
+
+/* === Theme toggle visibility + contrast === */
+#theme-toggle.btn,
+#light-mode-toggle.btn {
+  white-space: nowrap;
+}
+
+@media (max-width: 992px) {
+  /* Make the toggle span full width inside the collapsed menu */
+  #theme-toggle,
+  #light-mode-toggle {
+    display: block;
+    width: 100%;
+    margin: 8px 0 0 0;
+  }
+}
+
+/* Ensure good contrast in dark mode */
+.dark-mode #theme-toggle.btn-secondary,
+.dark-mode #light-mode-toggle.btn-secondary {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #111 !important;
+}
+
+/* Light mode contrast (if you ever switch classes) */
+body:not(.dark-mode) #theme-toggle.btn-secondary,
+body:not(.dark-mode) #light-mode-toggle.btn-secondary {
+  background-color: #6c757d; /* default secondary */
+  color: #fff;
+}
+
+/* === Premium Welcome Card === */
+.animated-welcome{
+  /* deep black gradient card */
+  background: linear-gradient(135deg,#1a1a1a 0%,#0f0f0f 100%) !important;
+  border-radius: 18px !important;
+  padding: clamp(18px,3.2vw,28px) clamp(22px,4vw,40px) !important;
+  margin: clamp(20px,4vw,48px) auto !important;
+  max-width: 1000px !important;
+  text-align: center !important;
+
+  /* subtle “premium” chrome */
+  border: 1px solid rgba(255,255,255,.06) !important;
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.05),
+    inset 0 0 0 1px rgba(255,255,255,.02) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* faint vignette inside the card */
+.animated-welcome::before{
+  content:"";
+  position:absolute; inset:-20%;
+  background: radial-gradient(1200px 400px at 50% -20%, rgba(255,255,255,.06), transparent 60%);
+  pointer-events:none;
+}
+
+/* Heading */
+.animated-welcome h2{
+  font-family:'Cinzel',serif !important;
+  color:#f1f1f1 !important;
+  font-weight:700 !important;
+  letter-spacing:.3px !important;
+  line-height:1.25 !important;
+  font-size:clamp(22px,5.5vw,42px) !important;
+  margin:0 0 10px 0 !important;
+  text-shadow:0 2px 8px rgba(0,0,0,.6) !important;
+  display:inline-block;
+  position:relative;
+}
+
+/* gold accent bar under the heading */
+.animated-welcome h2::after{
+  content:"";
+  display:block;
+  height:3px;
+  width:clamp(80px,18vw,160px);
+  margin:12px auto 0;
+  border-radius:9999px;
+  background:linear-gradient(90deg,#b8891a,#ffd34d,#fff0a6,#d4af37,#b8891a);
+  box-shadow:0 0 12px rgba(255,215,0,.35);
+}
+
+/* Animated word = shimmering gold */
+#animated-word{
+  background:linear-gradient(90deg,#b8891a,#ffd34d,#fff0a6,#d4af37,#b8891a);
+  background-size:300% 300%;
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+  animation:welcomeShimmer 3s linear infinite;
+  font-weight:800 !important;
+  text-shadow:none !important; /* keep the gold crisp */
+}
+@keyframes welcomeShimmer{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Cursor matches gold */
+.cursor{
+  display:inline-block !important;
+  width:2px !important; height:1.1em !important;
+  margin-left:6px !important;
+  background:#ffd34d !important;
+  animation:blink .8s steps(1) infinite !important;
+}
+@keyframes blink{50%{opacity:0}}
+
+/* Mobile spacing tweaks */
+@media (max-width: 576px){
+  .animated-welcome{ padding:18px 16px !important; }
+}
+
+
+
