@@ -4627,3 +4627,6 @@ WARNING 2025-08-29 04:35:40,547 basehttp "GET /static/css/custom.css HTTP/1.1" 4
 INFO 2025-08-29 04:35:47,699 basehttp "GET /schedule_appointment/ HTTP/1.1" 200 7892
 WARNING 2025-08-29 04:35:47,736 basehttp "GET /static/styles.css HTTP/1.1" 404 1957
 WARNING 2025-08-29 04:35:47,744 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1969
+INFO 2025-08-29 06:10:52,320 autoreload Watching for file changes with StatReloader
+INFO 2025-08-29 06:12:24,867 autoreload /Users/katerinacowan/TurboDMVServices/dmvservice/settings.py changed, reloading.
+INFO 2025-08-29 06:12:25,130 autoreload Watching for file changes with StatReloader

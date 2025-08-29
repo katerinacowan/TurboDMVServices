@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'autoDetailProject.wsgi.application'
+WSGI_APPLICATION = 'TurboDMVServices.wsgi.application'
 
 # -----------------
 # DATABASE (SQLite)
