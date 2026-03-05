@@ -5111,3 +5111,28 @@ INFO 2025-08-29 18:45:41,636 basehttp "GET /services/ HTTP/1.1" 200 19348
 WARNING 2025-08-29 18:45:41,670 basehttp "GET /static/styles.css HTTP/1.1" 404 1890
 INFO 2025-08-29 18:45:41,671 basehttp "GET /static/css/mobilefriendly.css HTTP/1.1" 304 0
 WARNING 2025-08-29 18:45:41,674 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1902
+INFO 2026-03-05 23:48:37,568 autoreload Watching for file changes with StatReloader
+INFO 2026-03-05 23:48:42,701 basehttp "GET / HTTP/1.1" 200 11376
+WARNING 2026-03-05 23:48:42,791 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1902
+WARNING 2026-03-05 23:48:42,792 basehttp "GET /static/styles.css HTTP/1.1" 404 1890
+INFO 2026-03-05 23:51:26,961 autoreload Watching for file changes with StatReloader
+INFO 2026-03-05 23:51:35,287 basehttp "GET / HTTP/1.1" 200 11376
+WARNING 2026-03-05 23:51:35,369 basehttp "GET /static/styles.css HTTP/1.1" 404 1890
+WARNING 2026-03-05 23:51:35,369 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1902
+INFO 2026-03-05 23:54:02,986 autoreload Watching for file changes with StatReloader
+INFO 2026-03-05 23:54:30,498 autoreload Watching for file changes with StatReloader
+INFO 2026-03-05 23:54:38,906 basehttp "GET / HTTP/1.1" 200 11414
+WARNING 2026-03-05 23:54:38,987 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1902
+WARNING 2026-03-05 23:54:38,988 basehttp "GET /static/styles.css HTTP/1.1" 404 1890
+INFO 2026-03-05 23:55:12,204 basehttp "GET / HTTP/1.1" 200 11391
+WARNING 2026-03-05 23:55:12,225 basehttp "GET /static/styles.css HTTP/1.1" 404 1890
+WARNING 2026-03-05 23:55:12,225 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1902
+INFO 2026-03-05 23:55:20,453 basehttp "GET /about_us/ HTTP/1.1" 200 8738
+WARNING 2026-03-05 23:55:20,479 basehttp "GET /static/styles.css HTTP/1.1" 404 1890
+WARNING 2026-03-05 23:55:20,479 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1902
+INFO 2026-03-05 23:55:24,729 basehttp "GET /services/ HTTP/1.1" 200 19344
+WARNING 2026-03-05 23:55:24,753 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1902
+WARNING 2026-03-05 23:55:24,753 basehttp "GET /static/styles.css HTTP/1.1" 404 1890
+INFO 2026-03-05 23:55:32,776 basehttp "GET / HTTP/1.1" 200 11391
+WARNING 2026-03-05 23:55:32,797 basehttp "GET /static/styles.css HTTP/1.1" 404 1890
+WARNING 2026-03-05 23:55:32,798 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1902
