@@ -13,6 +13,16 @@
   
   <!-- Luxury font -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17870707823">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17870707823');
+</script>
 </head>
 
 {% block content %}
@@ -72,7 +82,7 @@
     <h6 class="text-gold">Our Services</h6>
     <h2 class="sub-title">What We Do</h2>
     <p class="lead mt-3">
-      We handle DMV paperwork for <strong>all vehicles</strong> — cars, trucks, motorcycles, trailers, RVs, commercial and fleet — so you can skip the lines and drive with confidence.
+      We handle paperwork for <strong>all vehicles</strong> — cars, trucks, motorcycles, trailers, RVs, commercial and fleet — so you can skip the lines and drive with confidence.
     </p>
   </div>
 
@@ -90,9 +100,11 @@
     </div>
 
     <!-- Center Image (optional visual) -->
+    <!-- 
     <div class="col-md-4 mb-4 d-flex align-items-center justify-content-center">
       <img src="{% static 'imgs/DMV.svg' %}" class="img-fluid rounded" alt="DMV Services">
-    </div>
+    </div> 
+    -->
 
     <!-- Right Column -->
     <div class="col-md-4 mb-4">
