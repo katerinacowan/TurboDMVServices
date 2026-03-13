@@ -5137,3 +5137,16 @@ INFO 2026-03-05 23:55:32,776 basehttp "GET / HTTP/1.1" 200 11391
 WARNING 2026-03-05 23:55:32,797 basehttp "GET /static/styles.css HTTP/1.1" 404 1890
 WARNING 2026-03-05 23:55:32,798 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1902
 INFO 2026-03-06 00:20:01,602 autoreload Watching for file changes with StatReloader
+INFO 2026-03-13 07:06:14,118 autoreload Watching for file changes with StatReloader
+INFO 2026-03-13 07:06:19,042 basehttp "GET / HTTP/1.1" 200 11806
+WARNING 2026-03-13 07:06:19,114 basehttp "GET /static/styles.css HTTP/1.1" 404 1890
+WARNING 2026-03-13 07:06:19,114 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1902
+INFO 2026-03-13 07:06:19,119 basehttp "GET /static/css/bootstrap.min.css HTTP/1.1" 200 140936
+INFO 2026-03-13 07:06:19,122 basehttp "GET /static/imgs/banner.png HTTP/1.1" 200 1047325
+INFO 2026-03-13 07:06:19,122 basehttp "GET /static/imgs/logo.png HTTP/1.1" 200 1439664
+WARNING 2026-03-13 07:06:19,666 log Not Found: /favicon.ico
+WARNING 2026-03-13 07:06:19,667 basehttp "GET /favicon.ico HTTP/1.1" 404 3249
+INFO 2026-03-13 07:06:58,626 autoreload Watching for file changes with StatReloader
+INFO 2026-03-13 07:07:04,851 basehttp "GET / HTTP/1.1" 200 11832
+WARNING 2026-03-13 07:07:04,917 basehttp "GET /static/styles.css HTTP/1.1" 404 1890
+WARNING 2026-03-13 07:07:04,917 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1902
