@@ -5136,3 +5136,4 @@ WARNING 2026-03-05 23:55:24,753 basehttp "GET /static/styles.css HTTP/1.1" 404 1
 INFO 2026-03-05 23:55:32,776 basehttp "GET / HTTP/1.1" 200 11391
 WARNING 2026-03-05 23:55:32,797 basehttp "GET /static/styles.css HTTP/1.1" 404 1890
 WARNING 2026-03-05 23:55:32,798 basehttp "GET /static/css/custom.css HTTP/1.1" 404 1902
+INFO 2026-03-06 00:20:01,602 autoreload Watching for file changes with StatReloader
